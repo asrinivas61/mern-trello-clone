@@ -1,0 +1,62 @@
+{
+  "name": "trello-server",
+  "version": "1.0.0",
+  "description": "A Trello server-side backend which is exposed to serve the application with required REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www --production",
+    "dev": "nodemon ./bin/www --development",
+    "pretest": "npm run format",
+    "test": "npm run test:coverage npm run test:unit && npm run test:component",
+    "test:unit": "mocha --require @babel/register --exit './**/*.spec.js'",
+    "test:component": "APP_PORT=0 MOCHAWESOME_REPORTDIR=./tests/component/supertest/reports MOCHAWESOME_REPORTFILENAME=mocha-report mocha --require @babel/register --exit --timeout 900000 --reporter mochawesome './tests/component/supertest/**/*.spec.js'",
+    "format": "semistandard --env mocha --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asrinivas61/mern-trello-clone.git"
+  },
+  "keywords": [
+    "trello",
+    "trello-clone",
+    "mern-trello",
+    "MERN",
+    "Sample",
+    "project"
+  ],
+  "author": "Srinivasa Rao A",
+  "bugs": {
+    "url": "https://github.com/asrinivas61/mern-trello-clone/issues"
+  },
+  "homepage": "https://github.com/asrinivas61/mern-trello-clone#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "gravatar": "^1.8.2",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18",
+    "mongoose-auto-increment": "^5.0.1",
+    "passport": "^0.4.1",
+    "text-encoder": "0.0.4",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.1",
+    "mochawesome": "^6.2.2",
+    "nodemon": "^2.0.12",
+    "semistandard": "^16.0.1",
+    "supertest": "^6.1.6"
+  },
+  "license": "LICENSED"
+}
